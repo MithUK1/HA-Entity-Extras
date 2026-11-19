@@ -1,0 +1,13 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Entity Extras",
+        "description": "This adds Divider, Spacer, Section and Web link to the entity picker. Set up each one on the row itself when you add it to an Entities card."
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "Entity Extras is already set up."
+    }
+  }
+}

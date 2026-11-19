@@ -1,0 +1,13 @@
+{
+  "domain": "entity_extras",
+  "name": "Entity Extras",
+  "codeowners": ["@MithUK1"],
+  "config_flow": true,
+  "dependencies": ["frontend", "http"],
+  "documentation": "https://github.com/MithUK1/HA-Entity-Extras",
+  "integration_type": "service",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/MithUK1/HA-Entity-Extras/issues",
+  "single_config_entry": true,
+  "version": "1.0.0"
+}
