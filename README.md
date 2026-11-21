@@ -15,7 +15,7 @@ as writing this in YAML:
 
 ## What you get
 
-![The Entity Extras entities in the entity picker](images/picker.png)
+<img src="images/picker.png" alt="The Entity Extras entities in the entity picker" width="400">
 
 | Entity | Same as | Set up on the row |
 | --- | --- | --- |
@@ -30,7 +30,7 @@ one of these IDs, Home Assistant adds `_2` to the new one.
 
 Here is how they look in an Entities card:
 
-![A divider, section, spacer and web link in an Entities card](images/result.png)
+<img src="images/result.png" alt="A divider, section, spacer and web link in an Entities card" width="420">
 
 ## Install
 
