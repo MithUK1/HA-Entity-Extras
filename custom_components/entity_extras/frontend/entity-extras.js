@@ -1,8 +1,8 @@
 /*
  * Entity Extras - frontend module
  *
- * The integration publishes entities (ee.divider, ee.spacer, ...) that carry
- * an "ee_type" attribute. When an Entities card is given one of them, this
+ * The integration adds entities (Divider, Spacer, Section, Web link) that
+ * carry an "ee_type" attribute. When an Entities card is given one of them, this
  * module swaps the entity row for the matching row type, so picking "Divider"
  * from the entity list is the same as writing "- type: divider" in YAML.
  *

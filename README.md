@@ -19,13 +19,14 @@ as writing this in YAML:
 
 | Entity | Same as | Set up on the row |
 | --- | --- | --- |
-| `ee.divider` | `type: divider` | Nothing to set up |
-| `ee.spacer` | An empty gap between rows | Nothing to set up |
-| `ee.section` | `type: section` | Heading text |
-| `ee.weblink` | `type: weblink` | Text, URL and icon |
+| `sensor.divider` | `type: divider` | Nothing to set up |
+| `sensor.spacer` | An empty gap between rows | Nothing to set up |
+| `sensor.section` | `type: section` | Heading text |
+| `sensor.web_link` | `type: weblink` | Text, URL and icon |
 
-All entities use the `ee.` prefix, so typing `ee` in the entity picker filters down
-to them. You can add the same entity as many times as you like.
+Search the entity picker for Divider, Spacer, Section or Web link to find them. You
+can add the same entity as many times as you like. If you already had an entity with
+one of these IDs, Home Assistant adds `_2` to the new one.
 
 Here is how they look in an Entities card:
 
@@ -57,8 +58,7 @@ restart Home Assistant.
 ## Use
 
 1. Edit an **Entities** card.
-2. Add an entity, type `ee` to filter, and choose Divider, Spacer, Section or Web
-   link.
+2. Add an entity and choose Divider, Spacer, Section or Web link.
 3. For a section or web link, click the pencil icon on the row. A section has a
    **Heading** box. A web link has a **Text** box (what the link says), a **URL**
    box and an **Icon**.
@@ -68,7 +68,7 @@ Until a URL is set, a web link row shows but does not go anywhere.
 If you prefer YAML, the same web link looks like this:
 
 ```yaml
-- entity: ee.weblink
+- entity: sensor.web_link
   name: My link
   tap_action:
     action: url
@@ -80,8 +80,10 @@ If you prefer YAML, the same web link looks like this:
 - Works in the **Entities** card only. Other cards do not use row types.
 - The rows are swapped in when the card renders, so the frontend module must be
   loaded. Refresh the browser after installing or updating.
-- These are state-only entities, so they cannot be renamed from the entity settings
-  page.
+- These are normal entities, so you can rename them, give them an area or disable
+  them. The row type follows the entity, not its name or ID.
+- Updating from 1.0.0: the old `ee.*` entities are gone. Pick the rows again in
+  your cards.
 - The address is saved as a URL tap action on the row. A plain `url:` key is not
   accepted by the visual card editor, so use the form above if you write YAML.
 - The text boxes in the row editor are added by the frontend module. If a future Home

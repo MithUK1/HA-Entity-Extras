@@ -11,7 +11,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.loader import async_get_integration
 
-from .const import ATTR_TYPE, DOMAIN, FRONTEND_URL, ROW_TYPES, STATE_DOMAIN
+from .const import DOMAIN, FRONTEND_URL, PLATFORMS
 
 FRONTEND_FILE = Path(__file__).parent / "frontend" / "entity-extras.js"
 
@@ -30,25 +30,11 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Publish one state per row type so they show up in the entity picker."""
-    published: list[str] = []
-
-    for row_type, (name, icon) in ROW_TYPES.items():
-        entity_id = f"{STATE_DOMAIN}.{row_type}"
-        hass.states.async_set(
-            entity_id,
-            row_type,
-            {"friendly_name": name, "icon": icon, ATTR_TYPE: row_type},
-        )
-        published.append(entity_id)
-
-    # Remember what was published so it can be removed again on unload
-    entry.runtime_data = published
+    """Add the row entities."""
+    await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     return True
 
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Remove the published states."""
-    for entity_id in entry.runtime_data:
-        hass.states.async_remove(entity_id)
-    return True
+    """Remove the row entities."""
+    return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
